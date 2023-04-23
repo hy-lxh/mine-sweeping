@@ -1,6 +1,6 @@
 import { col, ctx, h, row, w } from './config';
 
-export const matrix: Block[][] = Array.from(new Array(row),() => []);
+export let matrix: Block[][];
 export enum BlockType {
     DEFAULT,
     MINE
@@ -79,6 +79,7 @@ export class Block {
  * @returns mineNum
  */
 export function createMatrixMap(): number {
+    matrix = Array.from(new Array(row),() => []);
     let num = ~~(row * col / 10 + Math.random() * row * col / 10);
     const mineNum = num;
     while (num > 0) {
