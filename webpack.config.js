@@ -48,7 +48,7 @@ module.exports = (env) => ({
         }),
         new TerserPlugin({
             parallel: true,
-            extractComments: true,
+            extractComments: false,
             terserOptions: {
                 ecma: undefined,
                 warnings: false,
