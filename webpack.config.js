@@ -9,7 +9,7 @@ module.exports = (env) => ({
     entry: path.resolve(__dirname, "./scripts/index.ts"),
     output: {
         path: path.resolve(__dirname, "./dist"),
-        filename: "js/[name].[hash:6].js",
+        filename: "js/[name].[contenthash:6].js",
         clean: true
     },
     module: {
