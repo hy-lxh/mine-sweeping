@@ -80,7 +80,7 @@ function initEvent() {
                 if(row * col - exhibitNum === mineNum && time){
                     // 赢了
                     alert(`此次游戏耗时: ${time}s`);
-                    time = 0;
+                    gameOver();
                 }
             });
         }
