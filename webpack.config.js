@@ -54,7 +54,6 @@ module.exports = (env) => ({
                 warnings: false,
                 parse: {},
                 compress: {
-                    drop_console: true,
                     drop_debugger: true,
                 }
             }

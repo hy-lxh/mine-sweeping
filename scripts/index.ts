@@ -13,24 +13,32 @@ let rmEvents: () => void;
  */
 function init() {
     initState();
-    createMatrixMap();
+    mineNum = createMatrixMap();
     initEvent();
     render();
 }
 
+/**
+ * 开始游戏
+ */
 function gameStart(){
     timer = setInterval(() => {
         time++;
     },1000);
 }
 
+/**
+ * 游戏结束
+ */
 function gameOver(){
     time = 0;
     clearInterval(timer);
     rmEvents();
 }
 
-
+/**
+ * 初始化state
+ */
 function initState(){
     mapW = cvs.width = w * col;
     mapH = cvs.height = h * row;
@@ -39,10 +47,21 @@ function initState(){
     time = 0;
 }
 
+/**
+ * 统一的事件监听函数
+ * @param el 元素
+ * @param type 类型
+ * @param listener 监听函数
+ * @returns 
+ */
 function eventListener<T extends keyof HTMLElementEventMap>(el: HTMLElement,type: T,listener: (ev: HTMLElementEventMap[T]) => any){
     el.addEventListener(type,listener,false);
     return () => el.removeEventListener(type,listener,false);
 }
+
+/**
+ * 初始化点击事件
+ */
 function initEvent() {
     const rmClick = eventListener(cvs,'click',ev => {
         const { clientX: x, clientY: y } = ev, { offsetLeft: l, offsetTop: t } = cvs;
@@ -57,12 +76,15 @@ function initEvent() {
                 gameStart();
             }
             exhibitNum = matrix[r][c].show(exhibitNum);
+            setTimeout(() => {
+                if(row * col - exhibitNum === mineNum && time){
+                    // 赢了
+                    alert(`此次游戏耗时: ${time}s`);
+                    time = 0;
+                }
+            });
         }
-        if(row * col - exhibitNum === mineNum){
-            // 赢了
-            alert(`此时游戏耗时: ${time}s`);
-            time = 0;
-        }
+        // console.log(`总数量: ${row * col},雷数量: ${mineNum},展开了: ${exhibitNum}`);
     });
     const rmCtx = eventListener(cvs,'contextmenu',ev => {
         ev.preventDefault();
@@ -79,6 +101,10 @@ function initEvent() {
     };
 }
 
+/**
+ * 炸片雷
+ * @param block 
+ */
 function bomb(block: Block){
     block.fillStyle = '#A705ED';
     matrix.forEach(blocks => blocks.forEach((block) => {
@@ -106,7 +132,9 @@ function render() {
 
 
 
-
+/**
+ * 选关事件
+ */
 eventListener(document.querySelector('.mine-sweeping')!,'click',({target}) => {
     let level = Number((target as HTMLElement).dataset.level);
     if(!level)return;
