@@ -1,7 +1,7 @@
 import { col, ctx, h, row, w } from './config';
 
-export let matrix: Block[][];
-export enum BlockType {
+    export let matrix: Block[][];
+    export enum BlockType {
     DEFAULT,
     MINE,
 }
