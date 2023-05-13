@@ -21,18 +21,19 @@
 		"dev": "webpack-dev-server",
 		"build": "webpack --mode=production",
 		"eslint": "eslint ./scripts/**/*.ts --fix",
-		"prettier": "prettier --write './{scripts,css}/**/*.{ts,css}'",
+		"prettier": "prettier --write './scripts/**/*.ts'",
 		"stylelint": "stylelint './css/**/*.css' --fix",
 		"husky": "husky install",
 		"lint:staged": "lint-staged"
 	},
 	"lint-staged": {
 		"*.ts": [
-			"pnpm eslint",
-			"pmpm prettier"
+			"eslint --fix",
+			"prettier --write"
 		],
 		"*.{css,less,scss}": [
-			 "pnpm stylelint"
+			 "stylelint --fix",
+			 "prettier --write"
 		]
 	},
 	"dependencies": {

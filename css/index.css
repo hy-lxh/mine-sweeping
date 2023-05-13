@@ -4,7 +4,7 @@
 }
 
 body {
-display: flex;
+    display: flex;
     height: 100vh;
     background: #171617;
     align-items: center;
@@ -16,25 +16,23 @@ canvas {
     background: #fff;
 }
 
-
-.mine-sweeping{
-    border: 1px solid #D2D3A9;
+.mine-sweeping {
+    border: 1px solid #d2d3a9;
     display: inline-block;
     padding: 20px;
 }
 
-
-.level-list{
+.level-list {
     display: flex;
     gap: 0 10px;
 }
 
-.level-list > div{
+.level-list > div {
     flex: 1 1 auto;
     text-align: center;
     padding: 5px 0;
-    background: #2D3E4A;
-    color: #E9F0EF;
+    background: #2d3e4a;
+    color: #e9f0ef;
     margin-bottom: 10px;
     font-size: 12px;
     cursor: pointer;
