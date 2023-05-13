@@ -1,12 +1,12 @@
 import { col, ctx, h, row, w } from './config';
 
-    export let matrix: Block[][];
-    export enum BlockType {
+export let matrix: Block[][];
+export enum BlockType {
     DEFAULT,
     MINE,
 }
-    const defaultFillStyle = '#2D3E4A';
-    export class Block {
+const defaultFillStyle = '#2D3E4A';
+export class Block {
     fillStyle?: string;
     color: string;
     flagFillStyle: string;

@@ -28,11 +28,11 @@
 	},
 	"lint-staged": {
 		"*.ts": [
-			"eslint --fix",
-			"prettier --fix"
+			"pnpm eslint",
+			"pmpm prettier"
 		],
 		"*.{css,less,scss}": [
-			 "stylelint --fix"
+			 "pnpm stylelint"
 		]
 	},
 	"dependencies": {
