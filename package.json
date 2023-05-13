@@ -32,7 +32,7 @@
 			"prettier --fix"
 		],
 		"*.{css,less,scss}": [
-			"stylelint --fix"
+			 "stylelint --fix"
 		]
 	},
 	"dependencies": {
