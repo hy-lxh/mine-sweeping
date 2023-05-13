@@ -29,7 +29,10 @@ module.exports = (env) => ({
     },
     devServer: {
         open: true,
-        hot: true
+        hot: true,
+        port: 3507,
+        host: 'localhost',
+        liveReload: true
     },
     resolve: {
         alias: {
