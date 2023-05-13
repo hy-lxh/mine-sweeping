@@ -22,12 +22,9 @@
 		"build": "webpack --mode=production",
 		"eslint": "eslint ./scripts/**/*.ts --fix",
 		"prettier": "prettier --write './{scripts,css}/**/*.{ts,css}'",
-		"stylelint": "stylelint './css/**/*.css' --fix"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged"
-		}
+		"stylelint": "stylelint './css/**/*.css' --fix",
+		"husky": "husky install",
+		"lint:staged": "lint:staged"
 	},
 	"lint-staged": {
 		"*.ts": [
