@@ -24,17 +24,15 @@
 		"prettier": "prettier --write './{scripts,css}/**/*.{ts,css}'",
 		"stylelint": "stylelint './css/**/*.css' --fix",
 		"husky": "husky install",
-		"lint:staged": "lint:staged"
+		"lint:staged": "lint-staged"
 	},
 	"lint-staged": {
 		"*.ts": [
 			"eslint --fix",
-			"prettier --fix",
-			"git add"
+			"prettier --fix"
 		],
 		"*.{css,less,scss}": [
-			"stylelint --fix",
-			"git add"
+			"stylelint --fix"
 		]
 	},
 	"dependencies": {
