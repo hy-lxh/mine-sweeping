@@ -6,7 +6,7 @@ export enum BlockType {
     MINE,
 }
     const defaultFillStyle = '#2D3E4A';
-export class Block {
+    export class Block {
     fillStyle?: string;
     color: string;
     flagFillStyle: string;
